@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>k3digital.online - Solusi Digital untuk UMKM Indonesia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #f59e0b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --light-gray: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f9fafb;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            border-color: #25d366;
+        }
+
+        .btn-whatsapp:hover {
+            color: #25d366;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+            padding: 150px 0 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            color: var(--gray);
+        }
+
+        .hero-bg {
+            position: absolute;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .bg-circle-1 {
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: var(--primary);
+            top: -250px;
+            right: -250px;
+        }
+
+        .bg-circle-2 {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: var(--secondary);
+            bottom: -150px;
+            left: -150px;
+        }
+
+        /* About */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #dbeafe 0%, #dbeafe 100%);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* Vision Mission */
+        .vision-mission {
+            background-color: #f8fafc;
+        }
+
+        .vm-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .vision, .mission {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .vision h3, .mission h3 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-list {
+            list-style: none;
+        }
+
+        .mission-list li {
+            margin-bottom: 1rem;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .mission-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: #f1f5f9;
+        }
+
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .testimonial-card:before {
+            content: """;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--light-gray);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            padding-left: 40px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            padding-left: 40px;
+        }
+
+        .author-name {
+            font-weight: 600;
+        }
+
+        .author-title {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+
+        .cta h2 {
+            color: white;
+        }
+
+        .cta h2:after {
+            background: var(--secondary);
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .cta .btn {
+            background: white;
+            color: var(--primary);
+            font-size: 1.1rem;
+            padding: 15px 35px;
+        }
+
+        .cta .btn:hover {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .copyright {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .hero {
+                padding: 130px 0 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">k3<span>digital</span>.online</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg bg-circle-1"></div>
+        <div class="hero-bg bg-circle-2"></div>
+        <div class="container">
+            <h1>Solusi Digital untuk UMKM Indonesia</h1>
+            <p>Membantu UMKM memiliki website & produk digital yang simpel, cepat, dan terjangkau sehingga dapat bertumbuh dan menginspirasi.</p>
+            <a href="#contact" class="btn btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Konsultasi Gratis via WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about">
+        <div class="container">
+            <h2>Tentang Kami</h2>
+            <div class="about-content">
+                <p>Halo! Selamat datang di <span class="highlight">k3digital.online</span> — tempat kamu bisa bikin website & produk digital yang simpel, cepat, dan terjangkau, khusus untuk UMKM Indonesia.</p>
+                <p>Nama K3 kami ambil dari inisial tiga anak kami. Setiap proyek yang kami kerjakan membawa semangat keluarga, kejujuran, dan harapan agar setiap UMKM yang kami bantu juga bisa bertumbuh dan menginspirasi.</p>
+                <p>Kami sadar, banyak pelaku usaha bingung bagaimana memulai tampil online. Terlalu mahal, terlalu rumit, atau gak tau harus mulai dari mana. Nah, kami hadir sebagai solusi yang mudah, praktis, dan bersahabat.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section class="vision-mission">
+        <div class="container">
+            <h2>🎯 Visi & Misi</h2>
+            <div class="vm-container">
+                <div class="vision">
+                    <h3>Visi</h3>
+                    <p>Menjadi mitra digital terpercaya bagi UMKM Indonesia untuk membangun kehadiran online yang kuat, sederhana, dan terjangkau.</p>
+                </div>
+                <div class="mission">
+                    <h3>Misi</h3>
+                    <ul class="mission-list">
+                        <li>Membantu UMKM memiliki website sendiri dengan proses yang mudah dan cepat</li>
+                        <li>Menyediakan produk digital siap pakai untuk mendukung pemasaran usaha</li>
+                        <li>Mendidik pelaku usaha agar melek digital lewat panduan yang sederhana</li>
+                        <li>Menawarkan layanan dengan hati, bukan sekadar teknis</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services">
+        <div class="container">
+            <h2>💼 Layanan Kami</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Pembuatan Website Katalog UMKM</h3>
+                    <p>Website profesional untuk memamerkan produk dan layanan Anda dengan desain modern dan responsif.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-download"></i>
+                    </div>
+                    <h3>Produk Digital Siap Pakai</h3>
+                    <p>eBook, template menu, katalog PDF, dan berbagai produk digital untuk mendukung pemasaran usaha.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Branding Digital Sederhana</h3>
+                    <p>Logo, identitas warna, dan elemen branding lainnya untuk memperkuat citra usaha Anda.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                    <h3>Undangan Digital via Website</h3>
+                    <p>Buat undangan digital yang elegan dan mudah dibagikan melalui website khusus.</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 30px; font-style: italic;">Semua kami desain agar bisa langsung kamu pakai dari HP, tanpa ribet dan tanpa biaya mahal.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>💬 Kata Mereka</h2>
+            <div class="testimonial-container">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Awalnya bingung mau mulai dari mana, tapi k3digital bantu bikin website usaha saya jadi kelihatan profesional. Terima kasih banget!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <div class="author-name">Bu Rina</div>
+                            <div class="author-title">Pemilik Toko Kue Rumahan</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Suka banget! Semua prosesnya gampang, dan saya tinggal share link website ke pelanggan. Nggak nyangka semudah ini."</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <div class="author-name">Pak Budi</div>
+                            <div class="author-title">Pengusaha Laundry</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>📞 Yuk, Ngobrol!</h2>
+            <p>Punya usaha tapi belum punya website? Atau pengen produk digital yang bisa bantu jualanmu makin lancar?</p>
+            <p>Langsung hubungi kami via WhatsApp, gratis konsultasi awal!</p>
+            <a href="https://wa.me/082213254676" class="btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Klik di sini untuk chat WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">k3digital.online</div>
+            <p>Solusi digital simpel, cepat, dan terjangkau untuk UMKM Indonesia</p>
+            <div class="copyright">
+                &copy; 2023 k3digital.online. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
